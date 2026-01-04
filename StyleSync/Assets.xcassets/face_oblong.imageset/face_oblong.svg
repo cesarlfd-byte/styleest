@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="Rosto retangular ou oblongo">
+  <g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M44 20 C36 20, 32 26, 32 34 L32 94 C32 104, 40 112, 64 112 C88 112, 96 104, 96 94 L96 34 C96 26, 92 20, 84 20 Z"/>
+    <path d="M48 64 L48 64" stroke-width="10" stroke-linecap="round"/>
+<path d="M80 64 L80 64" stroke-width="10" stroke-linecap="round"/>
+<path d="M52 84 C60 92, 68 92, 76 84"/>
+  </g>
+</svg>

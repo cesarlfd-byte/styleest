@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="Rosto triângulo">
+  <g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M64 22 C50 22, 40 30, 38 40 C34 58, 34 80, 40 96 C48 114, 80 114, 88 96 C94 80, 94 58, 90 40 C88 30, 78 22, 64 22 Z"/>
+    <path d="M48 64 L48 64" stroke-width="10" stroke-linecap="round"/>
+<path d="M80 64 L80 64" stroke-width="10" stroke-linecap="round"/>
+<path d="M52 84 C60 92, 68 92, 76 84"/>
+  </g>
+</svg>

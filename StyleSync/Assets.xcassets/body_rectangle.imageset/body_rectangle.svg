@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="Corpo retângulo">
+  <g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="64" cy="22" r="12"/>
+    <path d="M40 46
+             C46 56, 46 96, 40 106
+             C52 114, 76 114, 88 106
+             C82 96, 82 56, 88 46
+             C76 54, 52 54, 40 46 Z"/>
+  </g>
+</svg>

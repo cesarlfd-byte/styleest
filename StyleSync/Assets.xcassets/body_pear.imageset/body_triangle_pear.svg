@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="Corpo triângulo ou pera">
+  <g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="64" cy="22" r="12"/>
+    <path d="M44 46
+             C52 56, 76 56, 84 46
+             C94 66, 100 88, 96 104
+             C86 114, 42 114, 32 104
+             C28 88, 34 66, 44 46 Z"/>
+  </g>
+</svg>

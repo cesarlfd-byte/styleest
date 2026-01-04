@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="Rosto triângulo invertido">
+  <g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M64 18 C40 18, 28 34, 28 52 C28 76, 40 98, 64 112 C88 98, 100 76, 100 52 C100 34, 88 18, 64 18 Z"/>
+    <path d="M48 64 L48 64" stroke-width="10" stroke-linecap="round"/>
+<path d="M80 64 L80 64" stroke-width="10" stroke-linecap="round"/>
+<path d="M52 84 C60 92, 68 92, 76 84"/>
+  </g>
+</svg>

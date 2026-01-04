@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="Corpo triângulo invertido">
+  <g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="64" cy="22" r="12"/>
+    <path d="M28 46
+             C44 58, 84 58, 100 46
+             C94 66, 86 84, 78 104
+             C70 112, 58 112, 50 104
+             C42 84, 34 66, 28 46 Z"/>
+  </g>
+</svg>

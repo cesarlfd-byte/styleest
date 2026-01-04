@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="Corpo oval ou maçã">
+  <g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="64" cy="22" r="12"/>
+    <path d="M46 44
+             C34 60, 30 86, 40 104
+             C52 116, 76 116, 88 104
+             C98 86, 94 60, 82 44
+             C74 52, 54 52, 46 44 Z"/>
+  </g>
+</svg>
