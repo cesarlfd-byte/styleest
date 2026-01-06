@@ -5,7 +5,7 @@ import Combine
 // Gera tendências personalizadas usando IA baseadas no perfil do usuário
 class FashionTrendsService: ObservableObject {
     
-    private let apiToken = "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"
+    private let apiToken = ProcessInfo.processInfo.environment["HUGGINGFACE_API_TOKEN"] ?? ""
     private let textEndpoint = "https://router.huggingface.co/models/meta-llama/Meta-Llama-3-8B-Instruct"
     
     // MARK: - Gerar tendências da semana
@@ -50,6 +50,12 @@ class FashionTrendsService: ObservableObject {
                 "return_full_text": false
             ]
         ]
+        
+        // Garantir token do Hugging Face via variável de ambiente
+        guard !apiToken.isEmpty else {
+            // Fallback se não houver token configurado
+            return generateFallbackTrends(profile: profile)
+        }
         
         guard let url = URL(string: textEndpoint) else {
             throw AIError.invalidURL
@@ -136,6 +142,12 @@ class FashionTrendsService: ObservableObject {
                 "return_full_text": false
             ]
         ]
+        
+        // Garantir token do Hugging Face via variável de ambiente
+        guard !apiToken.isEmpty else {
+            // Fallback se não houver token configurado
+            return generateFallbackVibeContent(profile: profile)
+        }
         
         guard let url = URL(string: textEndpoint) else {
             throw AIError.invalidURL
