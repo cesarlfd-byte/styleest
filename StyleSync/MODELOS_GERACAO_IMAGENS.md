@@ -137,7 +137,7 @@ https://api-inference.huggingface.co/models/stablediffusionapi/anything-v5
 ```bash
 curl https://api-inference.huggingface.co/models/[MODELO] \
   -X POST \
-  -H "Authorization: Bearer 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" \
+  -H "Authorization: Bearer " \
   -H "Content-Type: application/json" \
   -d '{
     "inputs": "fashion illustration, flat lay style, casual outfit, clothing sketch, minimalist design, clean white background, professional fashion drawing, simple and elegant"
@@ -149,7 +149,7 @@ curl https://api-inference.huggingface.co/models/[MODELO] \
 ```bash
 curl https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0 \
   -X POST \
-  -H "Authorization: Bearer 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" \
+  -H "Authorization: Bearer " \
   -H "Content-Type: application/json" \
   -d '{"inputs": "fashion illustration, casual outfit, minimalist design"}' \
   --output test_sdxl.jpg && open test_sdxl.jpg
@@ -159,7 +159,7 @@ curl https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl
 ```bash
 curl https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-2-1 \
   -X POST \
-  -H "Authorization: Bearer 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" \
+  -H "Authorization: Bearer " \
   -H "Content-Type: application/json" \
   -d '{"inputs": "fashion illustration, casual outfit, minimalist design"}' \
   --output test_sd21.jpg && open test_sd21.jpg
@@ -169,7 +169,7 @@ curl https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-2-
 ```bash
 curl https://api-inference.huggingface.co/models/Lykon/dreamshaper-8 \
   -X POST \
-  -H "Authorization: Bearer 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" \
+  -H "Authorization: Bearer " \
   -H "Content-Type: application/json" \
   -d '{"inputs": "fashion illustration, casual outfit, minimalist design"}' \
   --output test_dream.jpg && open test_dream.jpg
