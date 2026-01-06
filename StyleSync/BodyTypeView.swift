@@ -29,7 +29,8 @@ struct BodyTypeView: View {
                         .multilineTextAlignment(.center)
                         .padding(.horizontal)
                     
-                    VStack(spacing: 16) {
+                    // Chips de tipo de corpo
+                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
                         ForEach(0..<bodyOptions.count, id: \.self) { i in
                             Button {
                                 selectedBodyIndex = i
@@ -39,27 +40,31 @@ struct BodyTypeView: View {
                                 let isSelected = selectedBodyIndex == i
                                 let bg = isSelected
                                     ? (colorScheme == .dark ? AppColors.lightPurple.opacity(0.12) : AppColors.lightPurple.opacity(0.18))
-                                    : (colorScheme == .dark ? Color(red: 0.11, green: 0.11, blue: 0.12) : Color.gray.opacity(0.10))
+                                    : (colorScheme == .dark ? Color(red: 0.11, green: 0.11, blue: 0.12) : Color.gray.opacity(0.05))
                                 let border = (colorScheme == .dark
                                     ? (isSelected ? AppColors.lightPurple : Color.gray.opacity(0.3))
                                     : (isSelected ? AppColors.darkPurple : Color.gray.opacity(0.3)))
                                 let iconColor = isSelected ? (colorScheme == .dark ? AppColors.lightPurple : AppColors.darkPurple) : (colorScheme == .dark ? .white : AppColors.darkPurple)
                                 
-                                HStack(spacing: 16) {
+                                VStack(spacing: 12) {
                                     Image(bodyOptions[i].1)
                                         .resizable()
                                         .renderingMode(.template)
                                         .aspectRatio(contentMode: .fit)
-                                        .frame(width: 18, height: 18)
+                                        .frame(width: 50, height: 50)
                                         .foregroundColor(iconColor)
                                     
                                     Text(bodyOptions[i].0)
-                                        .font(.body)
-                                    
-                                    Spacer()
+                                        .font(.caption)
+                                        .foregroundColor(.primary)
+                                        .lineLimit(2)
+                                        .multilineTextAlignment(.center)
+                                        .minimumScaleFactor(0.8)
+                                        .frame(height: 32)
                                 }
-                                .padding(.horizontal)
-                                .padding(.vertical, 12)
+                                .frame(maxWidth: .infinity)
+                                .frame(height: 120)
+                                .padding(.vertical, 16)
                                 .background(bg)
                                 .clipShape(RoundedRectangle(cornerRadius: 12))
                                 .overlay(

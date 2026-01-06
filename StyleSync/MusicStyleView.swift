@@ -17,10 +17,12 @@ struct MusicStyleView: View {
         MusicGenre(name: "Pop", iconName: "music.mic"),
         MusicGenre(name: "Rock", iconName: "guitars"),
         MusicGenre(name: "Hip Hop", iconName: "headphones"),
+        MusicGenre(name: "Sertanejo/Country", iconName: "square.stack.3d.up"),
         MusicGenre(name: "Eletrônica", iconName: "bolt"),
         MusicGenre(name: "Jazz", iconName: "music.quarternote.3"),
         MusicGenre(name: "R&B", iconName: "waveform"),
         MusicGenre(name: "Samba", iconName: "music.note"),
+        MusicGenre(name: "Regional", iconName: "figure.dance"),
         MusicGenre(name: "Reggae", iconName: "leaf.arrow.triangle.circlepath"),
         MusicGenre(name: "Indie", iconName: "sparkles"),
         MusicGenre(name: "Clássica", iconName: "music.note.list")

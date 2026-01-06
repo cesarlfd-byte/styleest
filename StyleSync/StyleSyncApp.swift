@@ -6,8 +6,15 @@ struct StyleSyncApp: App {
     
     var body: some Scene {
         WindowGroup {
-            OnboardingView()
-                .environmentObject(userProfile)
+            // Se o usuário já completou o onboarding, mostra a TabBar
+            // Senão, mostra o Onboarding
+            if userProfile.hasCompletedOnboarding {
+                MainTabView()
+                    .environmentObject(userProfile)
+            } else {
+                OnboardingView()
+                    .environmentObject(userProfile)
+            }
         }
     }
 }

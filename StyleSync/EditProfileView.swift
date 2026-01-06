@@ -3,6 +3,7 @@ import SwiftUI
 struct EditProfileView: View {
     @EnvironmentObject var profile: UserProfile
     @Environment(\.dismiss) var dismiss
+    @State private var showingResetAlert = false
     
     var body: some View {
         NavigationStack {
@@ -109,12 +110,48 @@ struct EditProfileView: View {
                         )
                     )
                     
+                    // Botão de resetar perfil
+                    VStack(spacing: 16) {
+                        Divider()
+                            .padding(.vertical, 8)
+                        
+                        Button(action: {
+                            showingResetAlert = true
+                        }) {
+                            HStack {
+                                Image(systemName: "trash")
+                                    .font(.body)
+                                Text("Limpar dados do perfil")
+                                    .font(.body)
+                                    .fontWeight(.medium)
+                            }
+                            .foregroundColor(.red)
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color.red.opacity(0.1))
+                            .clipShape(RoundedRectangle(cornerRadius: 12))
+                        }
+                        
+                        Text("Isso irá apagar todos os dados do seu perfil, mas manterá seus looks favoritos.")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                            .multilineTextAlignment(.center)
+                    }
+                    
                     Spacer()
                 }
                 .padding()
-                .navigationTitle("Editar")
+                .navigationTitle("Configurações")
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarBackButtonHidden(false)
+                .alert("Refazer onboarding?", isPresented: $showingResetAlert) {
+                    Button("Cancelar", role: .cancel) { }
+                    Button("Apagar e Recomeçar", role: .destructive) {
+                        profile.resetProfile()
+                    }
+                } message: {
+                    Text("Todos os dados do seu perfil serão apagados e você precisará refazer o onboarding. Seus looks favoritos serão mantidos.")
+                }
             }
             .scrollIndicators(.hidden)
         }

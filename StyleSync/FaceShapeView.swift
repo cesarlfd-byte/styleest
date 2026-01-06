@@ -11,7 +11,10 @@ struct FaceShapeView: View {
         ("Quadrado", "face_square"),
         ("Coração", "face_heart"),
         ("Diamante", "face_diamond"),
-        ("Oblongo", "face_oblong")
+        ("Oblongo", "face_oblong"),
+        ("Triângulo", "face_triangle"),
+        ("Oval", "face_oval"),
+        ("Triângulo invertido", "face_inverted_triangle"),
     ]
     
     var body: some View {
@@ -30,7 +33,8 @@ struct FaceShapeView: View {
                         .multilineTextAlignment(.center)
                         .padding(.horizontal)
                     
-                    VStack(spacing: 16) {
+                    // Chips de formato de rosto
+                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
                         ForEach(0..<faceOptions.count, id: \.self) { i in
                             Button {
                                 selectedFaceIndex = i
@@ -40,27 +44,30 @@ struct FaceShapeView: View {
                                 let isSelected = selectedFaceIndex == i
                                 let bg = isSelected
                                     ? (colorScheme == .dark ? AppColors.lightPurple.opacity(0.12) : AppColors.lightPurple.opacity(0.18))
-                                    : (colorScheme == .dark ? Color(red: 0.11, green: 0.11, blue: 0.12) : Color.gray.opacity(0.10))
+                                    : (colorScheme == .dark ? Color(red: 0.11, green: 0.11, blue: 0.12) : Color.gray.opacity(0.05))
                                 let border = (colorScheme == .dark
                                     ? (isSelected ? AppColors.lightPurple : Color.gray.opacity(0.3))
                                     : (isSelected ? AppColors.darkPurple : Color.gray.opacity(0.3)))
                                 let iconColor = isSelected ? (colorScheme == .dark ? AppColors.lightPurple : AppColors.darkPurple) : (colorScheme == .dark ? .white : AppColors.darkPurple)
                                 
-                                HStack(spacing: 16) {
+                                VStack(spacing: 12) {
                                     Image(faceOptions[i].1)
                                         .resizable()
                                         .renderingMode(.template)
                                         .aspectRatio(contentMode: .fit)
-                                        .frame(width: 18, height: 18)
+                                        .frame(width: 50, height: 50)
                                         .foregroundColor(iconColor)
                                     
                                     Text(faceOptions[i].0)
-                                        .font(.body)
-                                    
-                                    Spacer()
+                                        .font(.caption)
+                                        .foregroundColor(.primary)
+                                        .lineLimit(1)
+                                        .minimumScaleFactor(0.8)
+                                        .frame(height: 20)
                                 }
-                                .padding(.horizontal)
-                                .padding(.vertical, 12)
+                                .frame(maxWidth: .infinity)
+                                .frame(height: 110)
+                                .padding(.vertical, 16)
                                 .background(bg)
                                 .clipShape(RoundedRectangle(cornerRadius: 12))
                                 .overlay(

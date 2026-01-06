@@ -61,11 +61,20 @@ struct ProfileSummaryView: View {
             
             // ✅ Botão fixo no rodapé
             .safeAreaInset(edge: .bottom) {
-                PrimaryNavigationButton(
-                    destination: HomeView(), // ← substitua pela Home real depois
-                    label: "Começar",
-                    isEnabled: true
-                )
+                Button(action: {
+                    profile.hasCompletedOnboarding = true
+                }) {
+                    Text("Começar")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(AppColors.primaryPurple)
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                        .shadow(color: AppColors.primaryPurple.opacity(0.3), radius: 8, x: 0, y: 4)
+                }
+                .padding()
+                .background(Color(.systemBackground).ignoresSafeArea())
             }
         }
     }
