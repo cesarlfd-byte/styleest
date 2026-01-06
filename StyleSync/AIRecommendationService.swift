@@ -7,7 +7,7 @@ class AIRecommendationService: ObservableObject {
     
     // ⚠️ IMPORTANTE: Substitua pelo seu token do Hugging Face
     // Obtenha em: https://huggingface.co/settings/tokens
-    private let apiToken = "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"
+    private let apiToken = ProcessInfo.processInfo.environment["HUGGINGFACE_API_TOKEN"] ?? ""
     
     // Modelo gratuito e poderoso da Hugging Face (ENDPOINT ATUALIZADO)
     private let endpoint = "https://router.huggingface.co/models/meta-llama/Meta-Llama-3-8B-Instruct"
@@ -41,6 +41,17 @@ class AIRecommendationService: ObservableObject {
         Exemplo de resposta esperada:
         {"title":"Urban Chill","description":"Moletom oversized, calça cargo e tênis chunky","items":["Moletom cinza oversized","Calça cargo preta","Tênis chunky branco","Boné preto"],"styleNote":"Combine com acessórios minimalistas para um look urbano moderno"}
         """
+        
+        // Ensure API token is present from environment
+        guard !apiToken.isEmpty else {
+            // If missing token, return a safe fallback recommendation instead of calling the API
+            return generateFallbackLook(
+                gender: gender,
+                bodyType: bodyType,
+                temperature: temperature,
+                occasion: occasion
+            )
+        }
         
         let requestBody: [String: Any] = [
             "inputs": prompt,

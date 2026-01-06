@@ -20,13 +20,13 @@ import UIKit
 class AIRecommendationServiceSimple: ObservableObject {
     
     // ⚠️ IMPORTANTE: Tokens de API
-    private let apiToken = "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"
+    private let apiToken = ProcessInfo.processInfo.environment["HUGGINGFACE_API_TOKEN"] ?? ""
     
     // Modelo gratuito e poderoso da Hugging Face para texto
     private let textEndpoint = "https://router.huggingface.co/models/meta-llama/Meta-Llama-3-8B-Instruct"
     
     // OpenAI API - DALL-E 3 para geração de imagens
-    private let openAIApiKey = "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" // ⚠️ SUBSTITUA pela sua chave
+    private let openAIApiKey = ProcessInfo.processInfo.environment["OPENAI_API_KEY"] ?? ""
     private let openAIImageEndpoint = "https://api.openai.com/v1/images/generations"
     
     // OPÇÃO 1: Placeholder Estilizado (FUNCIONA SEMPRE - Recomendado temporariamente) ✅
@@ -69,6 +69,12 @@ class AIRecommendationServiceSimple: ObservableObject {
         profile: UserProfile,
         occasion: String
     ) async throws -> LookRecommendation {
+        
+        // Garantir token do Hugging Face via variável de ambiente
+        guard !apiToken.isEmpty else {
+            // Fallback para recomendação local se não houver token
+            return createFallbackRecommendation(profile: profile, occasion: occasion)
+        }
         
         let prompt = """
         Você é um stylist profissional brasileiro. Crie UMA recomendação de look detalhada.
@@ -152,6 +158,11 @@ class AIRecommendationServiceSimple: ObservableObject {
     // MARK: - Gerar com OpenAI DALL-E
     private func generateWithOpenAI(prompt: String) async throws -> UIImage {
         print("🎨 Gerando imagem com OpenAI DALL-E 3...")
+        
+        // Garantir chave da OpenAI via variável de ambiente
+        guard !openAIApiKey.isEmpty else {
+            throw AIError.invalidRequest
+        }
         
         guard let url = URL(string: openAIImageEndpoint) else {
             throw AIError.invalidURL
@@ -434,5 +445,4 @@ class AIRecommendationServiceSimple: ObservableObject {
         return image
     }
 }
-
 
